@@ -1,0 +1,9 @@
+---
+- name: My Test Playbook
+  hosts: all
+  become: yes
+  tasks:
+  - name: uninstalling a package
+    yum:
+      name: tree
+      state: absent   

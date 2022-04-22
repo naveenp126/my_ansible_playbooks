@@ -1,0 +1,10 @@
+---
+- name: My Test Playbook
+  hosts: all
+  become: yes
+  tasks:
+  - name: copying an file
+    copy:
+      src: /home/ansiadmin/index.html
+      dest: /home/ansiadmin
+      owner: akash  

@@ -1,0 +1,20 @@
+---
+- name: installing httpd
+  yum:
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+  notify: service httpd started
+
+- name: installing apache2
+  yum:
+    name: apache2
+    state: present
+  when: ansible_os_family == "Debian"
+  notify: service apache2 started
+
+- name: copying index.html file
+  copy:
+    src: /home/ansiadmin/index.html
+    dest: /var/www/html
+    mode: 0666  
